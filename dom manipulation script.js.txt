@@ -1,0 +1,32 @@
+let reddiv = document.getElementById('red')
+let yellowdiv = document.getElementById('yellow')
+let greendiv = document.getElementById('green')
+/*reddiv.onclick = () => {
+  console.log('you clicked red')
+  
+}
+yellowdiv.onclick=()=>console.log('you clicked yellow')
+greendiv.onclick=()=> console.log('you clicked green')*/
+const squares=document.querySelectorAll('.colorSquare')
+const timesclicked={'red':0,'yellow':0,'green':0}
+
+/*console.log(squares[0].value)
+console.log(squares[1].value)
+console.log(squares[2].value)*/
+//squares.forEach(square=>console.log(square.value))
+squares.forEach(square=>{
+  square.onclick=()=>{
+    timesclicked[square.value]+=1
+    square.innerText=timesclicked[square.value]
+  }
+})
+const cleargamebtn=document.getElementById('clear-game')
+cleargamebtn.onclick=()=>clearscores()
+function clearscores(){
+  timesclicked.red=0
+  timesclicked.yellow=0
+  timesclicked.green=0
+  squares.forEach(square=>{
+    square.innerText=0
+  })
+}
